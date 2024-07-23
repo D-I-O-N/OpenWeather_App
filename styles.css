@@ -1,6 +1,6 @@
 body {
   font-family: 'Montserrat', sans-serif;
-  color: #333;
+  
   margin: 0;
   padding: 20px;
   background-color: white;
@@ -73,6 +73,20 @@ body {
   justify-content: space-between;
   margin-top: 20px;
   width: 100%;
+}
+
+.logo_name {
+  
+  display: inline-flex;
+}
+
+.logo {
+  margin-right: 7%;
+}
+
+h3, h1 {
+  
+  color: #4793FF;
 }
 
 .day {
