@@ -1,4 +1,4 @@
-const apiKey = '1f99afbdb1843e6017aadf2960ce6450'; 
+const apiKey = '1f99afbdb1843e6017aadf2960ce6450';
 
 function toggleTheme() {
   document.body.classList.toggle('dark-mode');
@@ -29,10 +29,21 @@ async function fetchWeather(city) {
 async function fetchWeeklyWeather(city) {
   const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`);
   const data = await response.json();
-  return data.list.map(item => ({
-    date: item.dt_txt,
-    temperature: item.main.temp
-  }));
+
+  const dailyData = data.list.reduce((acc, curr) => {
+    const date = new Date(curr.dt_txt);
+    const day = date.toLocaleDateString("ru-RU", { weekday: 'short' });
+    if (!acc[day]) {
+      acc[day] = [];
+    }
+    acc[day].push(curr.main.temp);
+    return acc;
+  }, {});
+
+  return Object.keys(dailyData).map((day, index) => ({
+    day: index === 0 ? 'Сегодня' : index === 1 ? 'Завтра' : day,
+    maxTemp: Math.max(...dailyData[day])
+  })).slice(0, 7); // Ограничение прогноза до 7 дней
 }
 
 function displayWeather(weather) {
@@ -45,10 +56,10 @@ function displayWeather(weather) {
   `;
   
   weatherDetails.innerHTML = `
-    <p>Температура: ${weather.temperature}°C</p>
-    <p>Давление: ${weather.pressure} ртутного столба</p>
-    <p>Осадки: ${weather.precipitation} мм</p>
-    <p>Ветер: ${weather.wind} м/с</p>
+    <p>Температруа ${weather.temperature}°C</p>
+    <p>Давление ${weather.pressure} ртутного столба</p>
+    <p>Осадки ${weather.precipitation} мм</p>
+    <p>Ветер ${weather.wind} м/с</p>
   `;
 }
 
@@ -56,8 +67,8 @@ function displayWeeklyWeather(forecast) {
   const weeklyWeather = document.getElementById('weeklyWeather');
   weeklyWeather.innerHTML = forecast.map(day => `
     <div class="day">
-      <p>${day.date}</p>
-      <p>${day.temperature}°C</p>
+      <p>${day.day}</p>
+      <p>${day.maxTemp}°C</p>
     </div>
   `).join('');
 }

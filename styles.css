@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #333;
   margin: 0;
   padding: 20px;
@@ -51,19 +51,24 @@ body {
 }
 
 .today-weather, .weather-details {
+  box-shadow: 2px 5px 20px -3px #B4B4B4;
   flex: 1;
   padding: 20px;
-  background-color: #f0f0f0;
+  background-color: white;
   border-radius: 10px;
   margin-right: 10px;
-  text-align: center;
 }
 
 .weather-details {
   margin-right: 0;
+  font-style: Montserrat, sans-serif;
+  color:#939CB0;
 }
 
 .weekly-weather {
+  border-radius: 10px;
+  box-shadow: 2px 5px 20px -3px #B4B4B4;
+  background-color: white;
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
@@ -72,11 +77,12 @@ body {
 
 .day {
   flex: 1;
+  margin: 1%;
   padding: 10px;
-  border: 1px solid #ccc;
+  background-color: #4793FF;
   border-radius: 10px;
-  margin-right: 10px;
-  text-align: center;
+  font-weight: 500;
+  font-size: 18px;
 }
 
 .day:last-child {

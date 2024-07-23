@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather App</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
     <header class="header">
       <img src="./img/Header logo.svg" alt="Logo" class="logo">
-      
       <div class="search">
         <img src="./img/theme.svg" class="toggle-theme" onclick="toggleTheme()"/>
         <input onchange="getWeather()" type="text" id="cityInput" placeholder="Выбрать город">
@@ -22,14 +22,13 @@
         <h1>Температура °C</h1>
       </div>
       <div class="weather-details" id="weatherDetails">
-        <p>Температура: °C</p>
-        <p>Давление: ртутного столба</p>
-        <p>Осадки: %</p>
-        <p>Ветер: м/с</p>
+        <p>Температура °C</p>
+        <p>Давление ртутного столба</p>
+        <p>Осадки %</p>
+        <p>Ветер м/с</p>
       </div>
     </div>
     <div class="weekly-weather" id="weeklyWeather">
-
     </div>
   </div>
   <script src="script.js"></script>
