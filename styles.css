@@ -1,6 +1,5 @@
 body {
   font-family: 'Montserrat', sans-serif;
-  
   margin: 0;
   padding: 20px;
   background-color: white;
@@ -37,11 +36,22 @@ body {
   align-items: center;
 }
 
+::placeholder {
+  color: black;
+  text-align: center;
+  font-weight: bold;
+}
+
 .search input {
+  font-family: Montserrat;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 19.5px;
+  background: #4793FF33;
   padding: 10px;
   margin-right: 10px;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 0px solid #ccc;
 }
 
 .weather-container {
@@ -60,13 +70,20 @@ body {
 
 #today-temp {
   margin-top: 20px;
-  font-family: Montserrat;
   font-size: 450%;
-  font-weight: 500;
+  font-weight: 300;
   text-align: left;
   width: 160px;
-  /* line-height: 117.02px; */
-  /* height: 117px; */
+  margin: 5px 0px 0px 0px;
+}
+
+#today {
+  color: black;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 48.76px;
+  text-align: left;  
+  margin-top: 0px;
 }
 
 .today-weather, .weather-details {
@@ -78,9 +95,8 @@ body {
   margin-right: 50px;
 }
 
-.weather-details {
+.weather-details, #today-time, #today-city {
   margin-right: 0;
-  font-style: Montserrat, sans-serif;
   color:#939CB0;
 }
 

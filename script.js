@@ -54,14 +54,10 @@ function displayWeather(weather) {
   const weatherDetails = document.getElementById('weatherDetails');
   
   todayWeather.innerHTML = `
-  <h1 style="margin-top: 20px;
-  font-family: Montserrat;
-  font-size: 450%;
-  font-weight: 500;
-  text-align: left;
-  width: 160px;">${Math.round(weather.temperature)}°</h1>
-  <h2>Время: ${weather.time}</h2>
-    <h2>Город: ${weather.city}</h2>
+  <h1 id="today-temp">${Math.round(weather.temperature)}°</h1>
+  <h1 id="today">Сегодня</h1>
+  <p id="today-time">Время: ${weather.time}</p>
+    <p id="today-city">Город: ${weather.city}</p>
     
   `;
   
