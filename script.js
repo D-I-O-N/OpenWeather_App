@@ -1,8 +1,18 @@
 const apiKey = '1f99afbdb1843e6017aadf2960ce6450';
 
 function toggleTheme() {
-  document.body.classList.toggle('dark-mode');
+  const body = document.body;
+  if (body.classList.contains('dark-mode')) {
+    body.classList.remove('dark-mode');
+  } else {
+    body.classList.add('transition');
+    setTimeout(() => {
+      body.classList.add('dark-mode');
+      body.classList.remove('transition');
+    }, 50);
+  }
 }
+
 
 async function getWeather() {
   const city = document.getElementById('cityInput').value;

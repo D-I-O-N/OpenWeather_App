@@ -9,6 +9,45 @@ body {
   flex-direction: column;
 }
 
+body, .today-weather, .weather-details, .day {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.dark-mode {
+  background-color: #333;
+  color: white;
+}
+
+.dark-mode .today-weather, 
+.dark-mode .weather-details, 
+.dark-mode .day {
+  background-color: #444;
+  color: white;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  z-index: 9999;
+  pointer-events: none;
+  transition: width 0.5s ease, height 0.5s ease, top 0.5s ease, left 0.5s ease;
+}
+
+body.dark-mode::before {
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+}
+
+
+
 .container {
   max-width: 800px;
   width: 100%;
