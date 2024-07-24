@@ -133,6 +133,10 @@ body.dark-mode::before {
   margin-top: 0px;
 }
 
+#today-time {
+  margin-top: 0px;
+}
+
 .today-weather, .weather-details {
   height: 225px;
   box-shadow: 2px 5px 20px -3px #B4B4B4;
@@ -155,6 +159,7 @@ body.dark-mode::before {
   justify-content: space-between;
   margin-top: 20px;
   width: 100%;
+  
 }
 
 .logo_name {
@@ -182,7 +187,7 @@ h3, h1 {
 }
 
 .day:last-child {
-  margin-right: 0;
+  margin-right: 8;
 }
 
 .dark-mode {
