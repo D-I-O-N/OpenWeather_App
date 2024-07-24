@@ -64,8 +64,13 @@ function displayWeather(weather) {
   const weatherDetails = document.getElementById('weatherDetails');
   
   todayWeather.innerHTML = `
-  <h1 id="today-temp">${Math.round(weather.temperature)}°</h1>
-  <h1 id="today">Сегодня</h1>
+            <div class="today-img">
+              <div>
+                <h1 id="today-temp">${Math.round(weather.temperature)}°</h1>
+                <h1 id="today">Сегодня</h1>
+              </div>
+            <img style="margin-top: 30px;" id="today-sun" src="./img/sun.svg" height="95" width="95" />
+          </div>
   <p id="today-time">Время: ${weather.time}</p>
     <p id="today-city">Город: ${weather.city}</p>
     

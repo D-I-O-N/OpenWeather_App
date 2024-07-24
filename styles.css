@@ -46,8 +46,6 @@ body.dark-mode::before {
   left: -50%;
 }
 
-
-
 .container {
   max-width: 800px;
   width: 100%;
@@ -104,7 +102,7 @@ body.dark-mode::before {
 }
 
 .today-weather {
-  width: 225px;
+  width: 250px;
 }
 
 #today-temp {
@@ -113,7 +111,17 @@ body.dark-mode::before {
   font-weight: 300;
   text-align: left;
   width: 160px;
-  margin: 5px 0px 0px 0px;
+  margin: 15px 0px 0px 0px;
+}
+
+.today-img {
+ display: inline-flex;
+}
+
+#today-sun  {
+  position: relative;
+  left: -6px;
+  top: 5px;
 }
 
 #today {
