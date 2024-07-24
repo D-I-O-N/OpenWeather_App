@@ -54,14 +54,19 @@ function displayWeather(weather) {
   const weatherDetails = document.getElementById('weatherDetails');
   
   todayWeather.innerHTML = `
-  <h1>${weather.temperature}°C</h1>
+  <h1 style="margin-top: 20px;
+  font-family: Montserrat;
+  font-size: 450%;
+  font-weight: 500;
+  text-align: left;
+  width: 160px;">${Math.round(weather.temperature)}°</h1>
   <h2>Время: ${weather.time}</h2>
     <h2>Город: ${weather.city}</h2>
     
   `;
   
   weatherDetails.innerHTML = `
-    <p>Температруа ${weather.temperature}°C</p>
+    <p>Температура ${Math.round(weather.temperature)}°</p>
     <p>Давление ${weather.pressure} ртутного столба</p>
     <p>Осадки ${weather.precipitation} мм</p>
     <p>Ветер ${weather.wind} м/с</p>
@@ -73,7 +78,7 @@ function displayWeeklyWeather(forecast) {
   weeklyWeather.innerHTML = forecast.map(day => `
     <div class="day">
       <p>${day.day}</p>
-      <p>${day.maxTemp}°C</p>
+      <p>${Math.round(day.maxTemp)}°C</p>
     </div>
   `).join('');
 }
