@@ -26,18 +26,35 @@
                 <h1 id="today-temp">00°</h1>
                 <h1 id="today">Сегодня</h1>
               </div>
-            <img style="margin-top: 30px;" id="today-sun" src="./img/sun.svg" height="95" width="95" />
+              <img style="margin-top: 30px;" id="today-sun" src="./img/sun.svg" height="95" width="95" />
           </div>
         <p id="today-time">Время:</p>
         <p id="today-city">Город:</p>
       </div>
       <div class="weather-details" id="weatherDetails">
-        <ul>
-            <li><p>Температура °</p>
-            <li><p>Давление ртутного столба</p></li>
-            <li><p>Осадки %</p></li>
-            <li><p>Ветер м/с</p></li>
-        </ul>
+        <!-- <img id="cloud-details" height="202" width="460" src="./img/Cloud.png"/> -->
+        <table>
+          <tr>
+            <td><span class="icon-cell"><img src="./img/temp.svg" alt="Temperature"></span></td>
+            <td>Температура:</td>
+            <td>00° - ощущается как 00°</td>
+          </tr>
+          <tr>
+            <td><span class="icon-cell"><img src="./img/pressure.svg" alt="Pressure"></span></td>
+            <td>Давление:</td>
+            <td>000 мм ртутного столба - нормальное</td>
+          </tr>
+          <tr>
+            <td><span class="icon-cell"><img src="./img/Group.svg" alt="Precipitation"></span></td>
+            <td>Осадки:</td>
+            <td>Без осадков</td>
+          </tr>
+          <tr>
+            <td><span class="icon-cell"><img src="./img/wind.svg" alt="Wind"></span></td>
+            <td>Ветер: м/с</td>
+            <td>0 м/с юго-запад - легкий ветер</td>
+          </tr>
+        </table>
       </div>
     </div>
     <div class="weekly-weather" id="weeklyWeather">

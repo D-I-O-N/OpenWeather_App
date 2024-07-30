@@ -77,10 +77,28 @@ function displayWeather(weather) {
   `;
   
   weatherDetails.innerHTML = `
-    <p>Температура ${Math.round(weather.temperature)}°</p>
-    <p>Давление ${weather.pressure} ртутного столба</p>
-    <p>Осадки ${weather.precipitation} мм</p>
-    <p>Ветер ${weather.wind} м/с</p>
+        <table>
+          <tr>
+            <td><span class="icon-cell"><img src="./img/temp.svg" alt="Temperature"></span></td>
+            <td>Температура:</td>
+            <td>${Math.round(weather.temperature)}° - ощущается как ${Math.round(weather.temperature)-3}°</td>
+          </tr>
+          <tr>
+            <td><span class="icon-cell"><img src="./img/pressure.svg" alt="Pressure"></span></td>
+            <td>Давление:</td>
+            <td>${weather.pressure} мм ртутного столба - нормальное</td>
+          </tr>
+          <tr>
+            <td><span class="icon-cell"><img src="./img/Group.svg" alt="Precipitation"></span></td>
+            <td>Осадки:</td>
+            <td>${weather.precipitation} мм</td>
+          </tr>
+          <tr>
+            <td><span class="icon-cell"><img src="./img/wind.svg" alt="Wind"></span></td>
+            <td>Ветер:</td>
+            <td>${weather.wind} м/с юго-запад - легкий ветер</td>
+          </tr>
+        </table>
   `;
 }
 
