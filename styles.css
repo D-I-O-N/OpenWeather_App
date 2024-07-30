@@ -7,6 +7,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  min-width: 545px;
 }
 
 body, .today-weather, .weather-details, .day {
@@ -57,6 +58,10 @@ body.dark-mode::before {
   align-items: center;
   margin-bottom: 20px;
   width: 100%;
+}
+
+.logo_name {
+  width: 200px;
 }
 
 .logo {
@@ -143,7 +148,7 @@ table {
   align-items: center;
 }
 
-.weather-details td:nth-child(2), td:nth-child(3){
+.weather-details td:nth-child(2), td:nth-child(3), #day-about {
   font-family: Montserrat;
   font-size: 12px;
   font-weight: 400;
@@ -170,13 +175,14 @@ table {
 }
 
 .today-img {
-  display: inline-flex;
-  
+  position: relative;
 }
 
 #today-sun  {
-  position: relative;
-  top: 5px;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-70%); 
 }
 
 #today {
@@ -202,6 +208,33 @@ table {
   margin-right: 50px;
 }
 
+.weekly-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+#showWeekly {
+  background-color: #4793FF;
+  color: white;
+}
+
+.weekly-btn {
+  padding: 10px 20px;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 2px 5px 25px -3px #B4B4B440;
+  transition: background-color 0.3s ease;
+}
+
+.weekly-btn:hover {
+  background-color: #f0f0f0;
+}
+
+
 .weather-details, #today-time, #today-city {
   margin-right: 0;
   color:#939CB0;
@@ -215,7 +248,8 @@ table {
   justify-content: space-between;
   margin-top: 20px;
   width: 100%;
-  
+  flex-wrap: nowrap; /* Изменено на nowrap */
+  overflow-x: auto; /* Добавлено для горизонтальной прокрутки */
 }
 
 .logo_name {
@@ -228,18 +262,26 @@ table {
 }
 
 h3, h1 {
-  
-  color: #4793FF;
+    color: #4793FF;
 }
 
 .day {
-  flex: 1;
+  flex: 1; 
   margin: 1%;
   padding: 10px;
-  background-color: #4793FF;
+  background-color: #4793FF33;
   border-radius: 10px;
-  font-weight: 500;
-  font-size: 18px;
+}
+
+#day-temp, #day-name {
+  margin: 1% 0% 0% 0%;
+  font-weight: bold;
+  line-height: 21.94px;
+}
+
+#day-about {
+  margin: 0% 0% 1% 0%;
+  padding-left: 0px;
 }
 
 .day:last-child {

@@ -13,7 +13,6 @@ function toggleTheme() {
   }
 }
 
-
 async function getWeather() {
   const city = document.getElementById('cityInput').value;
   if (city) {
@@ -30,12 +29,14 @@ async function fetchWeather(city) {
   const date = new Date(data.dt * 1000);
   const time = date.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
   return {
+    date: date,
     time: time,
     city: data.name,
     temperature: data.main.temp,
     pressure: data.main.pressure,
     precipitation: data.rain ? data.rain['1h'] : 0,
-    wind: data.wind.speed
+    wind: data.wind.speed,
+    description: data.weather[0].description
   };
 }
 
@@ -46,17 +47,24 @@ async function fetchWeeklyWeather(city) {
   const dailyData = data.list.reduce((acc, curr) => {
     const date = new Date(curr.dt_txt);
     const day = date.toLocaleDateString("ru-RU", { weekday: 'short' });
+    const dayDate = date.toLocaleDateString("ru-RU", { day: 'numeric', month: 'short' });
     if (!acc[day]) {
-      acc[day] = [];
+      acc[day] = {
+        temps: [],
+        description: curr.weather[0].description,
+        date: dayDate
+      };
     }
-    acc[day].push(curr.main.temp);
+    acc[day].temps.push(curr.main.temp);
     return acc;
   }, {});
 
   return Object.keys(dailyData).map((day, index) => ({
     day: index === 0 ? 'Сегодня' : index === 1 ? 'Завтра' : day,
-    maxTemp: Math.max(...dailyData[day])
-  })).slice(0, 7); // Ограничение прогноза до 7 дней
+    maxTemp: Math.max(...dailyData[day].temps),
+    description: dailyData[day].description,
+    date: dailyData[day].date
+  })).slice(0, 7);
 }
 
 function displayWeather(weather) {
@@ -73,7 +81,6 @@ function displayWeather(weather) {
           </div>
   <p id="today-time">Время: ${weather.time}</p>
     <p id="today-city">Город: ${weather.city}</p>
-    
   `;
   
   weatherDetails.innerHTML = `
@@ -105,9 +112,13 @@ function displayWeather(weather) {
 function displayWeeklyWeather(forecast) {
   const weeklyWeather = document.getElementById('weeklyWeather');
   weeklyWeather.innerHTML = forecast.map(day => `
-    <div class="day">
-      <p>${day.day}</p>
-      <p>${Math.round(day.maxTemp)}°C</p>
-    </div>
+      <div class="day">
+        <p id="day-name">${day.day}</p>
+        <p id="day-about">${day.date}</p>
+        <img src="./img/rain-sun.png" />
+        <p id="day-temp">${Math.round(day.maxTemp)}°</p>
+        <p id="day-about">${Math.round(day.maxTemp)-3}°</p>
+        <p id="day-about">${day.description}</p>
+      </div>
   `).join('');
 }
